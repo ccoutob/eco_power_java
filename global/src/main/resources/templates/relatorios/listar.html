@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <meta charset="UTF-8">
+  <title>Listagem de Relatoriosa</title>
+</head>
+<body>
+<div class="container" layout:fragment="conteudo">
+  <h1>Lista de Relatorios</h1>
+  <div th:if="!${#strings.isEmpty(msg)}" class="alert alert-success">
+    <span th:text="${msg}"></span>
+  </div>
+  <table class="table table-striped">
+    <tr>
+      <th>Data Relatorio</th>
+      <th>Descricao</th>
+      <th>Emissao de CO2</th>
+      <th>Economia de Energia</th>
+    </tr>
+    <tr th:each="relatorios : ${status}">
+      <td th:text="${relatorios.dataRelatorio}"></td>
+      <td th:text="${relatorios.descricao}"></td>
+      <td th:text="${relatorios.emissaoCO2}"></td>
+      <td th:text="${relatorios.economiaEnergia}"></td>
+      <td>
+        <a th:href="@{/relatorios/editar/}+${relatorios.id}" class="btn btn-sm btn-primary">Editar</a>
+        <button th:onclick="|relatoriosId.value = ${relatorios.id}|" type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Excluir
+        </button>
+      </td>
+    </tr>
+  </table>
+
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Deseja realmente excluir os Relatorios?
+        </div>
+        <div class="modal-footer">
+          <form th:action="@{/relatorios/excluir}" method="post">
+            <input type="hidden" id="relatoriosId" name="idStatus">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+            <button type="submit" class="btn btn-danger">Sim</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>

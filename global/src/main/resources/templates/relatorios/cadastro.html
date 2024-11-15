@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro dos Relatorios</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container" layout:fragment="conteudo">
+    <h1>Cadastro dos Relatorios</h1>
+    <div th:if="${not #strings.isEmpty(msg)}" class="alert alert-success">
+        <span th:text="${msg}"></span>
+    </div>
+    <form th:action="@{/relatorios/cadastrar}" method="post" th:object="${relatorios}">
+        <!-- Outros campos de RELATORIOS -->
+        <div class="mb-3">
+            <label class="form-label">DATA DO RELATORIO</label>
+            <input type="text" th:field="*{dataRelatorio}" class="form-control" required>
+            <p th:if="${#fields.hasErrors('dataRelatorio')}" class="text text-danger" th:errors="*{dataRelatorio}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">DESCRICAO</label>
+            <input type="text" th:field="*{descricao}" class="form-control" required>
+            <p th:if="${#fields.hasErrors('descricao')}" class="text text-danger" th:errors="*{descricao}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">EMISSAO DE CO2</label>
+            <input type="text" th:field="*{emissaoCO2}" class="form-control" required>
+            <p th:if="${#fields.hasErrors('emissaoCO2')}" class="text text-danger" th:errors="*{emissaoCO2}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">ECONOMIA DE ENERGIA</label>
+            <input type="text" th:field="*{economiaEnergia}" class="form-control" required>
+            <p th:if="${#fields.hasErrors('economiaEnergia')}" class="text text-danger" th:errors="*{economiaEnergia}"></p>
+        </div>
+
+        <!-- Campos de Cliente -->
+        <div class="mb-3">
+            <label class="form-label">NOME</label>
+            <input type="text" th:field="*{cliente.nome}" class="form-control" required>
+            <p th:if="${#fields.hasErrors('cliente.nome')}" class="text text-danger" th:errors="*{cliente.nome}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">ENDERECO</label>
+            <input type="text" th:field="*{cliente.endereco}" class="form-control" required>
+            <p th:if="${#fields.hasErrors('cliente.endereco')}" class="text text-danger" th:errors="*{cliente.endereco}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">EMAIL</label>
+            <input type="email" th:field="*{cliente.email}" class="form-control" required>
+            <p th:if="${#fields.hasErrors('cliente.email')}" class="text text-danger" th:errors="*{cliente.email}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">TELEFONE</label>
+            <input type="text" th:field="*{cliente.telefone}" class="form-control" required>
+            <p th:if="${#fields.hasErrors('cliente.telefone')}" class="text text-danger" th:errors="*{cliente.telefone}"></p>
+        </div>
+
+        <button class="btn btn-success">Cadastrar</button>
+    </form>
+</div>
+</body>
+</html>

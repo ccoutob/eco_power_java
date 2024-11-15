@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro do Consumo de Energia</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container" layout:fragment="conteudo">
+    <h1>Cadastro do Consumo de Energia</h1>
+    <div th:if="${not #strings.isEmpty(msg)}" class="alert alert-success">
+        <span th:text="${msg}"></span>
+    </div>
+    <form th:action="@{/consumo/cadastrar}" method="post" th:object="${consumoEnergia}">
+        <!-- Outros campos de ConsumoEnergia -->
+        <div class="mb-3">
+            <label class="form-label">DATA CONSUMO</label>
+            <input type="text" th:field="*{dataConsumo}" class="form-control" required>
+            <p th:if="${#fields.hasErrors('dataConsumo')}" class="text text-danger" th:errors="*{dataConsumo}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">QUANTIDADE KW</label>
+            <input type="text" th:field="*{quantidadeKW}" class="form-control" required>
+            <p th:if="${#fields.hasErrors('quantidadeKW')}" class="text text-danger" th:errors="*{quantidadeKW}"></p>
+        </div>
+
+        <!-- Campos de Cliente -->
+        <div class="mb-3">
+            <label class="form-label">NOME</label>
+            <input type="text" th:field="*{cliente.nome}" class="form-control" required>
+            <p th:if="${#fields.hasErrors('cliente.nome')}" class="text text-danger" th:errors="*{cliente.nome}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">ENDERECO</label>
+            <input type="text" th:field="*{cliente.endereco}" class="form-control" required>
+            <p th:if="${#fields.hasErrors('cliente.endereco')}" class="text text-danger" th:errors="*{cliente.endereco}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">EMAIL</label>
+            <input type="email" th:field="*{cliente.email}" class="form-control" required>
+            <p th:if="${#fields.hasErrors('cliente.email')}" class="text text-danger" th:errors="*{cliente.email}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">TELEFONE</label>
+            <input type="text" th:field="*{cliente.telefone}" class="form-control" required>
+            <p th:if="${#fields.hasErrors('cliente.telefone')}" class="text text-danger" th:errors="*{cliente.telefone}"></p>
+        </div>
+
+        <button class="btn btn-success">Cadastrar</button>
+    </form>
+</div>
+</body>
+</html>

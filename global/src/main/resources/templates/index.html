@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<div layout:fragment="conteudo">
+    <h1>Bem vindo ao projeto Eco Power!!</h1>
+
+    <div>
+        <a th:href="@{/cliente/cadastrar}">Cadastro de Clientes</a>
+        <a th:href="@{/consumo/cadastrar}">Cadastro de Consumo de Energia</a>
+        <a th:href="@{/dispositivos/cadastrar}">Cadastro de Dispositivos</a>
+        <a th:href="@{/relatorios/cadastrar}">Cadastro de Relatorios</a>
+    </div>
+</div>
+</body>
+</html>

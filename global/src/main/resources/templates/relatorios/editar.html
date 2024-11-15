@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Dispositivos</title>
+</head>
+<body>
+<div class="container" layout:fragment="conteudo">
+    <h1>Edição de Dispositivos</h1>
+    <form th:action="@{/relatorios/editar}" method="post" th:object="${relatorios}">
+        <input type="hidden" th:field="*{id}">
+        <div class="mb-3">
+            <label class="form-label">DATA DO RELATORIO</label>
+            <input type="text" th:field="*{dataRelatorio}" class="form-control" required>
+            <p th:if="${#fields.hasErrors('dataRelatorio')}" class="text text-danger" th:errors="*{dataRelatorio}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">DESCRICAO</label>
+            <input type="text" th:field="*{descricao}" class="form-control" required>
+            <p th:if="${#fields.hasErrors('descricao')}" class="text text-danger" th:errors="*{descricao}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">EMISSAO DE CO2</label>
+            <input type="text" th:field="*{emisssaoCO2}" class="form-control" required>
+            <p th:if="${#fields.hasErrors('emisssaoCO2')}" class="text text-danger" th:errors="*{emisssaoCO2}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">ECONOMIA DE ENERGIA</label>
+            <input type="text" th:field="*{economiaEnergia}" class="form-control" required>
+            <p th:if="${#fields.hasErrors('economiaEnergia')}" class="text text-danger" th:errors="*{economiaEnergia}"></p>
+        </div>
+        <button class="btn btn-success">Editar</button>
+    </form>
+</div>
+</body>
+</html>

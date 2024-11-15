@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Dispositivos</title>
+</head>
+<body>
+<div class="container" layout:fragment="conteudo">
+    <h1>Edição de Dispositivos</h1>
+    <form th:action="@{/dispositivos/editar}" method="post" th:object="${dispositivos}">
+        <input type="hidden" th:field="*{id}">
+        <div class="mb-3">
+            <label class="form-label">NOME DISPOSITIVO</label>
+            <input type="text" th:field="*{nomeDispotivo}" class="form-control" required>
+            <p th:if="${#fields.hasErrors('nomeDispotivo')}" class="text text-danger" th:errors="*{nomeDispotivo}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">TIPO DISPOSITIVO</label>
+            <input type="text" th:field="*{tipoDispositivo}" class="form-control" required>
+            <p th:if="${#fields.hasErrors('tipoDispositivo')}" class="text text-danger" th:errors="*{tipoDispositivo}"></p>
+        </div>
+        <button class="btn btn-success">Editar</button>
+    </form>
+</div>
+</body>
+</html>
