@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/global.iml" filepath="$PROJECT_DIR$/.idea/global.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/eco_power_java.iml" filepath="$PROJECT_DIR$/.idea/eco_power_java.iml" />
     </modules>
   </component>
 </project>
