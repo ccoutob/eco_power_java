@@ -61,6 +61,9 @@ fácil acesso, com versões web e mobile, onde os usuários podem monitorar o co
 
 <h1>Sem anonimato 🕵️</h1> 
 <li>Com o sistema de login, nenhum usuário de fora do nosso sistema poderá realizar qualquer ação de CRUD de nossa aplicação</li>
+🔒 Login de ADMIN -> user: admin / password: ecopoweradm
+<br>
+🔒 Login de USUARIO -> user: customer / password: generic
 </br>
 
 ## ❗❗ COMO NOSSO SISTEMA FUNCINA ❗❗
@@ -68,6 +71,11 @@ fácil acesso, com versões web e mobile, onde os usuários podem monitorar o co
 <li> Após iniciada a aplicação, utilize "http://localhost:8080" para ir a tela de login</li>
 <li> Confira os usuários disponíveis a serem utilizados na classe "DataInitializer" contida no pacote "Configuration" </li>
 <li> Uma vez logado no sistema, navege por ele e realize as ações desejadas </li>
+
+<br>
+
+## Para mais informações sobre o sistema, acesse nosso vídeo demonstrativo:
+<a href="https://youtu.be/2V5bbAGjnDU">Vídeo demonstrativo</a>
 
 ### 🧑🏻‍💻 Autor 
 > Cauã Couto Basques - Turma 2TDSS
